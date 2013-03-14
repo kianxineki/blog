@@ -11,7 +11,7 @@ Here's a simple example that increments a counter,
 <span class="code">times</span>.
 </p>
 
-<code>
+```
 var connect = require('connect');
 var webserver = connect.createServer();
 webserver.use(require('sesame')());
@@ -27,7 +27,7 @@ webserver.use(connect.router(function (app) {
 
 console.log('Listening on 9090');
 webserver.listen(9090);
-</code>
+```
 
 <p>
 With no arguments, <span class="code">require('sesame')()</span> just loads up
@@ -35,7 +35,7 @@ sessions in-memory with no disk backup. You can pass in a storage engine like
 nStore and supermarket to save the sessions to disk:
 </p>
 
-<code>
+```
 var connect = require('connect');
 var webserver = connect.createServer();
 webserver.use(require('sesame')(<b>{
@@ -55,7 +55,7 @@ webserver.use(connect.router(function (app) {
 
 console.log('Listening on 9090');
 webserver.listen(9090);
-</code>
+```
 
 <p>
 And now the <span class="code">req.session.times</span> state persists across
@@ -65,7 +65,7 @@ interface doesn't change at all!
 You can update deeply nested values too:
 </p>
 
-<code>
+```
 var connect = require('connect');
 var webserver = connect.createServer();
 webserver.use(require('sesame')({
@@ -92,7 +92,7 @@ webserver.use(connect.router(function (app) {
 
 console.log('Listening on 9090');
 webserver.listen(9090);
-</code>
+```
 
 <p>
 And it all just works&trade;.

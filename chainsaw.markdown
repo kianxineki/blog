@@ -26,7 +26,7 @@ modifies that sum in chainable form through <span class="code">.add()</span>
 and <span class="code">.do()</span>.
 </p>
 
-<code>
+```
 var Chainsaw = require('chainsaw');
 
 function AddDo (sum) {
@@ -41,13 +41,13 @@ function AddDo (sum) {
         };
     });
 }
-</code>
+```
 
 <p>
 Then we can use the streaming interface like this:
 </p>
 
-<code>
+```
 AddDo(0)
     .add(5)
     .add(10)
@@ -58,7 +58,7 @@ AddDo(0)
         console.log('Sum: ' + sum);
     })
 ;
-</code>
+```
 
 <p>
 Note that in the <span class="code">.do()</span> blocks, further commands can be
@@ -73,7 +73,7 @@ provides a chainable interface on top of
 to read lines.
 </p>
 
-<code>
+```
 var Chainsaw = require('chainsaw');
 var Lazy = require('lazy');
 
@@ -107,14 +107,14 @@ function Prompt (stream) {
         };
     });
 }
-</code>
+```
 
 <p>
 And now we can read stdin with a bunch of <span class="code">.getline()</span>s
 chained together!
 </p>
 
-<code>
+```
 var stdin = process.openStdin();
 Prompt(stdin)
     .do(function () {
@@ -145,7 +145,7 @@ Prompt(stdin)
         process.exit();
     })
 ;
-</code>
+```
 
 <p>
 Check out <a href="https://github.com/substack/node-chainsaw"
@@ -155,9 +155,9 @@ You can install chainsaw with
 by doing:
 </p>
 
-<code>
+```
 npm install chainsaw
-</code>
+```
 
 <p>
 Happy, um... hacking!

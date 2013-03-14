@@ -5,7 +5,7 @@ into <a href="http://github.com/substack/js-traverse">js-traverse</a>.
 With this library, you can chain together hash operations like this:
 </p>
 
-<code>
+```
 var Hash = require('traverse/hash');
 Hash({ a : 1, b : 2 })
     .map(function (v) { return v + 1 })
@@ -21,15 +21,15 @@ Hash({ a : 1, b : 2 })
     })
     .items
 ;
-</code>
+```
 
 <p>
 which will print "There's a C key this far." and return the hash
 </p>
 
-<code>
+```
 { a : 2, b : 30, c : 42 }
-</code>
+```
 
 <p>
 The library borrows a lot from ruby hashes and javascript arrays. It's good for
@@ -66,14 +66,14 @@ f(value, key) with the Hash instance as 'this'.
 <p>
 The Hash function itself also has some functions tacked on so you can do:
 </p>
-<code>
+```
 Hash.map({ a : 1, b : 2 }, function (x) { return x + 1 })
-</code>
+```
 
 and get back an object without having to call .items on it:
-<code>
+```
 { a: 2, b: 3 }
-</code>
+```
 
 <p>
 Other libraries like
@@ -85,20 +85,20 @@ don't make so much of a fuss over chaining. Anyways, mine is better.
 To install, just:
 </p>
 
-<code>
+```
 npm install traverse
-</code>
+```
 
 or else:
-<code>
+```
 git clone <a href="http://github.com/substack/js-traverse">http://github.com/substack/js-traverse.git</a>
-</code>
+```
 
 <p>
 then
 </p>
 
-<code>
+```
 var Hash = require('traverse/hash');
-</code>
+```
 

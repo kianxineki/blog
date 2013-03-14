@@ -5,15 +5,15 @@ that generates a hash from process.argv and gets out of your way.
 You don't need to define any optstrings or option data structures, just do:
 </p>
 
-<code>
+```
 #!/usr/bin/env node
 var argv = require('optimist').argv;
 console.dir(argv);
-</code>
+```
 
 <p></p>
 
-<code>
+```
 $ ./opts.js --foo bar -xzf moo.tar somedir/
 { _: [ 'somedir/' ]
 , '$0': 'node ./opts.js'
@@ -22,7 +22,7 @@ $ ./opts.js --foo bar -xzf moo.tar somedir/
 , z: true
 , f: 'moo.tar'
 }
-</code>
+```
 
 <img src="/images/optimistic.png" width="376" height="399">
 
@@ -42,33 +42,33 @@ You can tack on extra goodies pipeline-style between the
 class="code">.argv</span> like this:
 </p>
 
-<code>
+```
 var argv = require('optimist')
     .usage('Usage: $0 -x [num] -y [num]')
     .demand(['x','y'])
     .argv
 ;
 console.log(argv.x / argv.y);
-</code>
+```
 
 <p>
 which complains at you if you don't pass in -x and -y:
 </p>
 
-<code>
+```
 $ ./divide.js -x 4.91 -z 2.51
 Usage: ./divide.js -x [num] -y [num]
 Missing arguments: y
-</code>
+```
 
 <p>
 but otherwise just gives you back a plain ol' hash and just works™.
 </p>
 
-<code>
+```
 $ ./divide.js -x 55 -y 11
 5
-</code>
+```
 
 <p>
 <a href="https://github.com/substack/node-optimist"

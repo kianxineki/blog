@@ -4,7 +4,7 @@ npmtop is a silly program that ranks npm contributors by the number of packages
 they've writen.
 </p>
 
-<code>
+```
 $ npmtop
 rank   percent   packages   author
 ----   -------   --------   ------
@@ -23,24 +23,24 @@ rank   percent   packages   author
 # 13    0.98 %       9      davglass
 # 14    0.98 %       9      mikebannister
 # 15    0.98 %       9      cloudhead
-</code>
+```
 
 <p>
 You can see where you stand individually in the rankings:
 </p>
 
-<code>
+```
 $ npmtop substack
 rank   percent   packages   author
 ----   -------   --------   ------
 #  6    1.74 %      16      substack
-</code>
+```
 
 <p>
 Here are the top 50, why not:
 </p>
 
-<code>
+```
 $ npmtop 50
 rank   percent   packages   author
 ----   -------   --------   ------
@@ -94,7 +94,7 @@ rank   percent   packages   author
 # 48    0.44 %       4      afelix
 # 49    0.44 %       4      aconbere
 # 50    0.44 %       4      broofa
-</code>
+```
 
 <p>
 That is a lot of packages!
@@ -104,9 +104,9 @@ That is a lot of packages!
 <img src="/images/npmtop.png" width="510" height="684">
 </div>
 
-<code>
+```
 npm install npmtop
-</code>
+```
 
 <p>
 <a href="https://github.com/substack/npmtop">get it on github</a>

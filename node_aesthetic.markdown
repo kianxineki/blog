@@ -13,13 +13,14 @@ This snippet is exemplary of the the radical simplicity pioneered by
 projects like <a href="http://www.sinatrarb.com/">sinatra</a>.
 </p>
 
-<code>var http = require('http');
+```
+var http = require('http');
 http.createServer(function (req, res) {
   res.writeHead(200, {'Content-Type': 'text/plain'});
   res.end('Hello World\n');
 }).listen(1337, "127.0.0.1");
 console.log('Server running at http://127.0.0.1:1337/');
-</code>
+```
 
 <p>
 Instead of the http server being an external <i>service</i> that we

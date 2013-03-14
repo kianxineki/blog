@@ -9,7 +9,7 @@ automated browser tests super easy.
 Tests usually look something like this:
 </p>
 
-<code>
+```
 var test = require('testling');
 
 test('json parse', function (t) {
@@ -19,7 +19,7 @@ test('json parse', function (t) {
     );
     t.end();
 }); 
-</code>
+```
 
 <p>
 Then you can run the tests on
@@ -27,10 +27,10 @@ Then you can run the tests on
 using a curl one-liner like this one:
 </p>
 
-<code>
+```
 curl -sSNT test.js -u mail@substack.net \
   'http://testling.com/?browsers=chrome/16.0,firefox/9.0,safari/5.1,ie/9.0,ie/7.0'
-</code>
+```
 
 <p>
 and when the code blows up
@@ -38,7 +38,7 @@ and when the code blows up
 you get a full stack trace!
 </p>
 
-<code>
+```
 $ curl -sSNT test.js -u mail@substack.net \
   'http://testling.com/?browsers=chrome/16.0,firefox/9.0,safari/5.1,ie/9.0,ie/7.0'
 Enter host password for user 'mail@substack.net':
@@ -62,7 +62,7 @@ iexplore/7.0        0/1    0 % ok
 
 
 total               4/5   80 % ok
-</code>
+```
 
 <p>
 Wow super great! Except perhaps you don't like how the standard test API looks
@@ -73,7 +73,7 @@ and want something more jasmine-esque and bdd-ish.
 Just write a little wrapper like this:
 </p>
 
-<code>
+```
 var testling = require('testling');
 
 module.exports = function describe (dname, cb) {
@@ -94,14 +94,14 @@ module.exports = function describe (dname, cb) {
         });
     });
 };
-</code>
+```
 
 <p>
 And now you can write your tests like so,
 <span class="code">require()</span>ing the bdd wrapper node.js-style:
 </p>
 
-<code>
+```
 var describe = require('./bdd');
 
 describe('arrays', function (it) {
@@ -130,14 +130,14 @@ describe('tests', function (it) {
         }, 100);
     });
 });
-</code>
+```
 
 <p>
 Now you have 2 files but you can still use a one-liner to stitch everything
 together:
 </p>
 
-<code>
+```
 $ tar -cf- bdd.js test.js | curl -sSNT- -u mail@substack.net \
   'testling.com/?browsers=chrome/16.0,firefox/9.0,iexplore/9.0'
 Enter host password for user 'mail@substack.net':
@@ -162,7 +162,7 @@ iexplore/9.0        2/3   66 % ok
 
 
 total               8/9   88 % ok
-</code>
+```
 
 <p>
 ...and strangely enough, IE9 only sleeps for 83 milliseconds when you tell it to

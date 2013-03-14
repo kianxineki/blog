@@ -10,7 +10,7 @@ Here's a simple example of Seq that executes some shell commands and reads
 files.
 </p>
 
-<code>
+```
 // parseq.js
 var fs = require('fs');
 var exec = require('child_process').exec;
@@ -31,7 +31,7 @@ Seq()
         console.log('This file has ' + src.length + ' bytes');
     })
 ;
-</code>
+```
 
 <p>
 In each <span class="code">.seq()</span> and <span class="code">.par()</span>,
@@ -53,7 +53,7 @@ chain together parallel actions and <span class="code">.seq()</span> to join the
 results:
 </p>
 
-<code>
+```
 var Seq = require('seq');
 Seq()
     .par(function () {
@@ -72,14 +72,14 @@ Seq()
         console.dir([ a, b, c ])
     })
 ;
-</code>
+```
 
 <p></p>
 
-<code>
+```
 $ node join.js 
 [ 'a', 'b', 'c' ]
-</code>
+```
 
 <p>
 Here, despite 'c' finishing first, its result shows up last in the final call to
@@ -99,11 +99,11 @@ just gets skipped. By default there is a
 at the end of all chains for uncaught errors that looks like:
 </p>
 
-<code>
+```
 .catch(function (err) {
     console.error(err.stack ? err.stack : err)
 })
-</code>
+```
 
 <p>
 This approach gets rid of a lot of the duplication and hassle of error handling
@@ -122,7 +122,7 @@ together in the same call, but more importantly gives fancier parallel flow
 control a more consistent interface. For instance:
 </p>
 
-<code>
+```
 // stat_all.js
 
 var fs = require('fs');
@@ -142,17 +142,17 @@ Seq()
         console.dir(sizes);
     })
 ;
-</code>
+```
 
 <p></p>
 
-<code>
+```
 $ node stat_all.js 
 { 'join.js': 443
 , 'parseq.js': 464
 , 'stat_all.js': 404
 }
-</code>
+```
 
 <p>
 In the above example, the first <span class="code">.seq()</span> pulls down the
@@ -169,21 +169,21 @@ asynchronous <span class="code">fs.stat()</span> operations waiting at a time,
 just change:
 </p>
 
-<code>
+```
 .parEach(function (file) {
     fs.stat(__dirname + '/' + file, this.into(file));
 })
-</code>
+```
 
 <p>
 to read:
 </p>
 
-<code>
+```
 .parEach(2, function (file) {
     fs.stat(__dirname + '/' + file, this.into(file));
 })
-</code>
+```
 
 <p>
 Super easy!
@@ -200,8 +200,8 @@ I've been hacking on.
 To install with <a href="http://github.com/isaacs/npm">npm</a>, just do:
 </p>
 
-<code>
+```
 npm install seq
-</code>
+```
 
 <img src="/images/marley.png" width="279" height="593">

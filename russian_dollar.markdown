@@ -16,7 +16,7 @@ Even haskell, with its static types and referential transparency, is capable of
 emulating this pattern. Here's an example:
 </p>
 
-<code>
+```
 -- <a href="http://substack.net/scripts/RussianDoll.hs">RussianDoll.hs</a>
 -- Russian Doll principle in haskell
 module Main where
@@ -35,16 +35,16 @@ main = do
     join $ readMVar fn
     join $ readMVar fn
     join $ readMVar fn
-</code>
+```
 
 <p>
 Which when executed prints:
 </p>
-<code>
+```
 First!
 Again!
 Again!
-</code>
+```
 
 <p>
 An empty MVar is created and bound to fn.
@@ -59,17 +59,17 @@ The inferred type for fn is MVar (IO ()), so join can be used to execute the
 IO () action inside the MVar.
 </p>
 
-<code>
+```
 ghci&gt; :t join
 join :: (Monad m) =&gt; m (m a) -&gt; m a
-</code>
+```
 
 <p>which means</p>
 
-<code>
+```
 :t join (readMVar (undefined :: (MVar (IO ()))))
 join (readMVar (undefined :: (MVar (IO ())))) :: IO ()
-</code>
+```
 
 <p>Neat!</p>
 

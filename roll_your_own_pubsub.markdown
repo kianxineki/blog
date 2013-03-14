@@ -31,7 +31,7 @@ To make sure it works, we can set an interval to call publish() with the string
 'data' and a random number from 0 to 99, inclusive.
 </p>
 
-<code>
+```
 // spew.js
 
 function publish (ev, n) {
@@ -42,13 +42,13 @@ setInterval(function () {
     var n = Math.floor(Math.random() * 100);
     publish('data', n);
 }, 1000);
-</code>
+```
 
 <p>
 Then we can run it to make sure it works:
 </p>
 
-<code>
+```
 $ node spew.js 
 data: 55
 data: 91
@@ -57,7 +57,7 @@ data: 64
 data: 89
 
 ^C
-</code>
+```
 
 <p>
 Yep! It prints out a random integer from 0 to 99 inclusive every second as
@@ -78,7 +78,7 @@ To test publish() now, I'll just hard-code <span class="code">subs</span> with t
 subscriptions.
 </p>
 
-<code>
+```
 // pub.js
 
 <b>var Hash = require('hashish');
@@ -99,13 +99,13 @@ setInterval(function () {
 <b>// for testing purposes:
 subs.bar = function (ev, n) { console.log('bar.' + ev + ': ' + n) };
 subs.baz = function (ev, n) { console.log('baz.' + ev + ': ' + n) };</b>
-</code>
+```
 
 <p>
 Now let's run <span class="code">pub.js</span>:
 </p>
 
-<code>
+```
 $ node pub.js
 bar.data: 67
 baz.data: 67
@@ -115,7 +115,7 @@ bar.data: 10
 baz.data: 10
 
 ^C
-</code>
+```
 
 <p>
 Every second, both <span class="code">bar</span> and <span
@@ -128,7 +128,7 @@ Now we can take out the test subscriptions and add a super-simple stub of a
 dnode server.
 </p>
 
-<code>
+```
 // stub.js
 
 var Hash = require('hashish');
@@ -150,7 +150,7 @@ setInterval(function () {
 dnode(function (client, conn) {
     // ...
 }.listen(5050);</b>
-</code>
+```
 
 <p>
 Now dnode will listen on port 5050 with an empty handler function.
@@ -171,7 +171,7 @@ use a reference in functions that you define.
 But enough about dnode, let's write a subscription function!
 </p>
 
-<code>
+```
 // sub.js
 
 var Hash = require('hashish');
@@ -199,7 +199,7 @@ dnode(function (client, conn) {
         });
     };</b>
 }).listen(5050);
-</code>
+```
 
 <p>
 All the subscription function needs to do is store the emitter function that the
@@ -211,7 +211,7 @@ DNode takes care of the rest!
 To test this server, let's write a client!
 </p>
 
-<code>
+```
 // client.js
 
 var dnode = require('dnode');
@@ -226,7 +226,7 @@ dnode.connect(5050, function (remote) {
     var emit = em.emit.bind(em);
     remote.subscribe(emit);
 });
-</code>
+```
 
 <p>
 The client creates an event emitter and listens for 'data' events.
@@ -242,15 +242,15 @@ supplied to the EventEmitter prototype will be the
 Now we can run the server:
 </p>
 
-<code>
+```
 $ node sub.js
-</code>
+```
 
 <p>
 And in another shell launch the client:
 </p>
 
-<code>
+```
 $ node client.js
 data: 86
 data: 30
@@ -258,7 +258,7 @@ data: 12
 data: 65
 
 ^C
-</code>
+```
 
 <p>
 Aww yiss, it works! Launch another client instance in another shell with the
@@ -289,7 +289,7 @@ to bundle up the dnode source at
 in the browser.
 </p>
 
-<code>
+```
 // web.js
 
 <b>var connect = require('connect');
@@ -327,7 +327,7 @@ dnode(function (client, conn) {
         });
     };
 }).listen(5050)<b>.listen(webserver)</b>;
-</code>
+```
 
 <p>
 Pow, that was easy! Now just drop an
@@ -335,7 +335,7 @@ Pow, that was easy! Now just drop an
 directory as <span class="code">web.js</span>:
 </p>
 
-<code>
+```
 &lt;!-- index.html --&gt;
 &lt;html&gt;
 &lt;head&gt;
@@ -365,7 +365,7 @@ directory as <span class="code">web.js</span>:
 
 &lt;/body&gt;
 &lt;/html&gt;
-</code>
+```
 
 <p>
 Now run it by going to <span class="code">http://localhost:5051</span>.

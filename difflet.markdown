@@ -6,14 +6,14 @@ a handy node.js module for computing pretty object diffs!
 Just plug in some initial options and the objects you want to compare!
 </p>
 
-<code>
+```
 var difflet = require('difflet');
 var s = difflet({ indent : 2, comment : true }).compare(
     { z : [6,7], a : 'abcdefgh', b : [ 31, 'xxt' ] },
     { x : 5, a : 'abdcefg', b : [ 51, 'xxs' ] }
 );
 console.log(s);
-</code>
+```
 
 <p>
 and you'll get a colored and annotated object expressing the differences between
@@ -37,7 +37,7 @@ You can set a bunch of options to adjust the formatting including comma-first
 output. You can even generate HTML output:
 </p>
 
-<code>
+```
 var difflet = require('difflet');
 var ent = require('ent');
 
@@ -70,16 +70,16 @@ var next = {
     b : [5,6,7]
 };
 diff(prev, next).pipe(process.stdout);
-</code>
+```
 
 <p>
 which generates some HTML output that you can stuff into a browser:
 </p>
 
-<code>
+```
 $ node example/html.js 
 {&amp;quot;a&amp;quot;:[1,2,3,&lt;span class="g"&gt;[4]&lt;/span&gt;,&lt;span class="g"&gt;&amp;quot;z&amp;quot;&lt;/span&gt;,&lt;span class="g"&gt;/beep/&lt;/span&gt;,&lt;span class="g"&gt;&amp;lt;Buffer 00 01 02&amp;gt;&lt;/span&gt;],&amp;quot;fn&amp;quot;:&lt;span class="b"&gt;&amp;quot;I &amp;lt;3 robots&amp;quot;&lt;/span&gt;,&lt;span class="g"&gt;&amp;quot;b&amp;quot;:[5,6,7]&lt;/span&gt;,&lt;span class="r"&gt;&amp;quot;yy&amp;quot;:6,&amp;quot;zz&amp;quot;:5&lt;/span&gt;}
-</code>
+```
 
 <p>
 Plus,
@@ -108,6 +108,6 @@ width="681" height="766">
 or with <a href="http://npmjs.org">npm</a> do:
 </p>
 
-<code>
+```
 npm install difflet
-</code>
+```

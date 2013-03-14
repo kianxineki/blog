@@ -2,10 +2,10 @@ The node.js community has been growing like crazy with 995 packages on
 <a href="http://npmjs.org">npm</a> at the time of this writing.
 </p>
 
-<code>
+```
 $ npm --loglevel=silent ls latest | wc -l
 995
-</code>
+```
 
 <p>
 For fun I graphed the dependencies between npm modules with

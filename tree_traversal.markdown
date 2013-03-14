@@ -4,10 +4,10 @@ JSON.stringify doesn't do functions. In arrays functions get
 turned into null and objects with keys that point at functions are ignored.
 </p>
 
-<code>
+```
 &gt; JSON.stringify([ 7, 8, function () {}, 9, { b : 4, c : function () {} } ])
 '[7,8,null,9,{"b":4}]'
-</code>
+```
 
 <img src="/images/tree-traversal.png" class="right-art"
     width="333" height="250"
@@ -31,7 +31,7 @@ Here's a small example that uses Traverse to collect all the leaf nodes from a
 complicated data structure.
 </p>
 
-<code>
+```
 #!/usr/bin/env node
 var sys = require('sys');
 var Traverse = require('traverse').Traverse;
@@ -50,13 +50,13 @@ sys.puts(acc.join(' '));
 /* Output:
     1 2 3 4 5 6 7 8 9
 */
-</code>
+```
 
 <p>
     Here's another simple example that modifies a tree, adding 128 to all negative numbers.
 </p>
 
-<code>
+```
 #!/usr/bin/env node
 var sys = require('sys');
 var Traverse = require('traverse').Traverse;
@@ -71,7 +71,7 @@ sys.puts(sys.inspect(fixed));
 /* Output:
     [ 5, 6, 125, [ 7, 8, 126, 1 ], { f: 10, g: 115 } ]
 */
-</code>
+```
 
 <p>
 And finally, this code solves the problem from the introduction.
@@ -81,7 +81,7 @@ forget that I'm supposed to replace those on the remote end with actual
 functions.
 </p>
 
-<code>
+```
 #!/usr/bin/env node
 var sys = require('sys');
 var Traverse = require('traverse').Traverse;
@@ -107,7 +107,7 @@ sys.puts(sys.inspect(callbacks));
     , '55': { id: 55, f: [Function], path: [ 'foo', '3' ] }
     }
 */
-</code>
+```
 
 <p>
 The traversal library is
@@ -117,8 +117,8 @@ You can also install this library with <a href="http://npmjs.org/">npm</a>, a
 nifty package manager for node.js.
 </p>
 
-<code>
+```
     npm install traverse
-</code>
+```
 
 <p>Happy hacking!</p>

@@ -6,7 +6,7 @@ websocket and https-capable http router proxy / load balancer in node.js!
 It's super simple to use, just call <span class="code">bounce()</span>!
 </p>
 
-<code>
+```
 var bouncy = require('bouncy');
 
 bouncy(function (req, bounce) {
@@ -17,7 +17,7 @@ bouncy(function (req, bounce) {
         bounce(8001)
     }
 }).listen(80);
-</code>
+```
 
 <p>
 You can <span class="code">bounce()</span> to a port, a
@@ -44,20 +44,20 @@ table kicking around in a json file. Just throw a
 <span class="code">routes.json</span> like this one:
 </p>
 
-<code>
+```
 {
     "beep.example.com" : 8000,
     "boop.example.com" : 8001
 }
-</code>
+```
 
 <p>
 at the <span class="code">bouncy</span> command and give it a port to listen on:
 </p>
 
-<code>
+```
 bouncy routes.json 80
-</code>
+```
 
 <p>
 Super easy!
@@ -65,17 +65,17 @@ Super easy!
 or with <a href="http://npmjs.org/">npm</a> do:
 </p>
 
-<code>
+```
 npm install bouncy
-</code>
+```
 
 <p>
 to install the library or
 </p>
 
-<code>
+```
 npm install -g bouncy
-</code>
+```
 
 <p>
 to install the command-line tool.

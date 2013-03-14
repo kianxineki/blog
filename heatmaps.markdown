@@ -11,7 +11,7 @@ Here's an example of using heatmap in node with some random values biased
 towards the center of the canvas:
 </p>
 
-<code>
+```
 var heatmap = require('heatmap');
 
 var heat = heatmap(500, 500, { radius : 30 });
@@ -28,7 +28,7 @@ heat.draw();
 
 var fs = require('fs');
 fs.writeFileSync('blob.png', heat.canvas.toBuffer());
-</code>
+```
 
 <p>
 When the example calls <span class="code">.addPoint(x,y)</span>, heatmap draws a
@@ -37,7 +37,7 @@ the alpha values can pile up as nearby points are added. With Canvas this is
 surprisingly easy to do:
 </p>
 
-<code>
+```
 Heat.prototype.addPoint = function (x, y, radius) {
     var ctx = this.alphaCanvas.getContext('2d');
     
@@ -50,7 +50,7 @@ Heat.prototype.addPoint = function (x, y, radius) {
     ctx.fillStyle = g;
     ctx.fillRect(x - radius, y - radius, radius * 2, radius * 2);
 };
-</code>
+```
 
 <p>
 I got the idea to use a secondary canvas's alpha channel with radial gradients

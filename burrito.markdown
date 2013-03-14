@@ -25,18 +25,18 @@ a crazy new library to make AST traversals and manipulations crazy easy.
 Given this snippet of code:
 </p>
 
-<code>
+```
 f() &amp;&amp; g(h());
 
 foo();
-</code>
+```
 
 <p>
 It's super easy to wrap all the function calls in another function call,
 <span class="code">qqq()</span>:
 </p>
 
-<code>
+```
 var burrito = require('burrito');
 
 var src = burrito('f() &amp;&amp; g(h())\nfoo()', function (node) {
@@ -44,16 +44,16 @@ var src = burrito('f() &amp;&amp; g(h())\nfoo()', function (node) {
 });
 
 console.log(src);
-</code>
+```
 
 <p></p>
 
-<code>
+```
 $ node wrap.js 
 qqq(f()) &amp;&amp; qqq(g(qqq(h())));
 
 qqq(foo());
-</code>
+```
 
 <p>
 Or maybe dive in and surgically replace that
@@ -62,7 +62,7 @@ with a
 <span class="code">||</span>, how about!
 </p>
 
-<code>
+```
 var burrito = require('burrito');
 
 var src = burrito('f() &amp;&amp; g(h())\nfoo()', function (node) {
@@ -70,16 +70,16 @@ var src = burrito('f() &amp;&amp; g(h())\nfoo()', function (node) {
 });
 
 console.log(src);
-</code>
+```
 
 <p></p>
 
-<code>
+```
 $ node wrap.js 
 f() || g(h());
 
 foo();
-</code>
+```
 
 <p>
 Plus you can <span class="code">.microwave()</span> your burrito too, which
@@ -88,7 +88,7 @@ evals the code using node's <span class="code">vm.runInNewContext()</span>
 <a href="http://github.com/substack/node-browserify">browserify</a>).
 </p>
 
-<code>
+```
 var burrito = require('burrito');
 
 var res = burrito.microwave('Math.sin(2)', function (node) {
@@ -96,7 +96,7 @@ var res = burrito.microwave('Math.sin(2)', function (node) {
 });
 
 console.log(res);
-</code>
+```
 
 <p>
 This snippet takes the expression <span class="code">Math.sin(2)</span> and
@@ -106,10 +106,10 @@ And since <span class="code">Math.sin(Math.PI / 2)</span> evaluates at <span
 class="code">1</span>, the code should print as much...
 </p>
 
-<code>
+```
 $ node microwave.js
 1
-</code>
+```
 
 <p>
 And it does! Hooray!
@@ -128,9 +128,9 @@ coverage tools without any binary extensions!
 
 <p>Give burrito a spin!</p>
 
-<code>
+```
 <a href="http://npmjs.org">npm</a> install burrito
-</code>
+```
 
 <p>
 or <a href="https://github.com/substack/node-burrito">get the code on github!</a>

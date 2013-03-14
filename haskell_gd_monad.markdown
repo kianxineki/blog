@@ -9,9 +9,9 @@ took the time to put it together but it's just not... <i>functional</i> enough
 for my tastes. Consider setPixel.
 </p>
 
-<code>
+```
 setPixel :: Point -&gt; Color -&gt; Image -&gt; IO ()
-</code>
+```
 
 <p>
 This function takes a point, a color, and an image, returning the
@@ -27,9 +27,9 @@ considering how much the underlying C library caters to this programming style.
 Not all of the actions are performed in-place, however.
 <p>
 
-<code>
+```
 rotateImage :: Int -&gt; Image -&gt; IO Image
-</code>
+```
 
 <p>
 The rotateImage function creates and returns a new Image type which has been
@@ -39,7 +39,7 @@ Luckily, there is a more functional way to handle both types of updates efficien
 while providing a handy way to automatically thread the state at the same time.
 </p>
 
-<code>
+```
 -- <a href="http://substack.net/scripts/haskell-gd/State.hs">State.hs</a>
 module Graphics.GD.State where
 
@@ -50,7 +50,7 @@ data GDCmd = SetPixel GD.Point GD.Color
 
 data GD' = GD' { gdCmds :: [GDCmd] }
 type GD a = State GD' a
-</code>
+```
 
 <p>
 Here, the GD type lets us create State monads that operate on GD' data.
@@ -60,20 +60,20 @@ a helper function consCmd that adds a command to the gdCmds of the state and a
 function setPixel that registers a SetPixel action.
 </p>
 
-<code>
+```
 consCmd :: GDCmd -&gt; GD ()
 consCmd cmd = modify $ \gd -&gt; gd { gdCmds = cmd : (gdCmds gd) }
 
 setPixel :: GD.Point -&gt; GD.Color -&gt; GD ()
 setPixel = (consCmd .) . SetPixel
-</code>
+```
 
 <p>
 Finally, a newImage function is defined that takes a size and GD () action
 and executes the commands in the IO monad using runCmd.
 </p>
 
-<code>
+```
 newImage :: GD.Size -&gt; GD () -&gt; IO GD.Image
 newImage size f = do
     im &lt;- GD.newImage size
@@ -83,14 +83,14 @@ newImage size f = do
 
 runCmd :: GDCmd -&gt; GD.Image -&gt; IO ()
 runCmd (SetPixel pt c) = GD.setPixel pt c
-</code>
+```
 
 <p>
 With just these pieces, it's possible to build something useful!
 This program creates a file noise.png filled with random color values.
 </p>
 
-<code>
+```
 -- <a href="http://substack.net/scripts/haskell-gd/Main.hs">Main.hs</a>
 module Main where 
 
@@ -106,7 +106,7 @@ main = do
         $ mapM_ (uncurry setPixel)
         $ zip (liftM2 (,) [0..w-1] [0..h-1]) -- all the pixel coordinates
         $ map fromInteger $ randomRs (0,256^3-1) g -- random colors
-</code>
+```
 
 <br>
 <img src="/images/haskell-gd/noise.png" width="400" height="300">
@@ -126,7 +126,7 @@ With the extended module, here's code that
 >computes a gradient</a>:
 </p>
 
-<code>
+```
 import Graphics.GD.State
 
 main = (savePngFile "gradient.png" =&lt;&lt;) . newImage (400,300) $ do
@@ -137,7 +137,7 @@ main = (savePngFile "gradient.png" =&lt;&lt;) . newImage (400,300) $ do
             g = 127 + ((128 * x) `div` w)
             b = 127
         in rgb r g b
-</code>
+```
 
 <br>
 <img src="/images/haskell-gd/gradient.png" width="400" height="300">
@@ -148,7 +148,7 @@ And this one draws a
 >circle and a line</a>:
 </p>
 
-<code>
+```
 import Graphics.GD.State
  
 main = (savePngFile "circle.png" =&lt;&lt;) . newImage (400,300) $ do
@@ -163,7 +163,7 @@ main = (savePngFile "circle.png" =&lt;&lt;) . newImage (400,300) $ do
         (rgb 255 255 255) -- white
 
     drawLine (0,0) (w-1,h-1) (rgb 127 255 127)
-</code>
+```
 
 <br>
 <img src="/images/haskell-gd/circle.png" width="400" height="300">

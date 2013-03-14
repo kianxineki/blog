@@ -8,7 +8,7 @@ Check this:
 </p>
 
 <p>server.js</p>
-<code>
+```
 var connect = require('connect');
 var server = connect.createServer();
 
@@ -16,26 +16,26 @@ server.use(connect.static(__dirname));
 server.use(require('browserify')(__dirname + '/js'));
 
 server.listen(9797);
-</code>
+```
 
 <p>js/foo.js</p>
-<code>
+```
 var bar = require('./bar');
 
 module.exports = function (x) {
     return x * bar.coeff(x);
 };
-</code>
+```
 
 <p>js/bar.js</p>
-<code>
+```
 exports.coeff = function (x) {
     return Math.log(x) / Math.log(2) + 1;
 };
-</code>
+```
 
 <p>index.html</p>
-<code>
+```
 &lt;html&gt;
 &lt;head&gt;
     &lt;script type="text/javascript" src="/browserify.js"&gt;&lt;/script&gt;
@@ -51,7 +51,7 @@ exports.coeff = function (x) {
     foo = &lt;span id="result"&gt;&lt;/span&gt;
 &lt;/body&gt;
 &lt;/html&gt;
-</code>
+```
 
 <p>
 Then fire up the server (<span class="code">node server.js</span>) and load up
@@ -74,7 +74,7 @@ to browserify:
 </p>
 
 <p>server.js</p>
-<code>
+```
 var connect = require('connect');
 var server = connect.createServer();
 
@@ -84,14 +84,14 @@ server.use(require('browserify')({
 }));
 
 server.listen(9797);
-</code>
+```
 
 <p>
 Then spew out some HTML:
 </p>
 
 <p>index.html</p>
-<code>
+```
 &lt;html&gt;
 &lt;head&gt;
     &lt;script type="text/javascript" src="/browserify.js"&gt;&lt;/script&gt;
@@ -113,7 +113,7 @@ Then spew out some HTML:
     &lt;span id="result"&gt;&lt;/span&gt;
 &lt;/body&gt;
 &lt;/html&gt;
-</code>
+```
 
 <p>
 Then fire up the server and check http://localhost:9797/
@@ -137,14 +137,14 @@ of packages. Here's the "browserify" part of
 <a href="https://github.com/substack/dnode">dnode</a>'s package.json:
 </p>
 
-<code>
+```
     "browserify" : {
         "name" : "dnode",
         "main" : "./browser/index.js",
         "base" : "./browser",
         "require" : [ "dnode-protocol" ]
     },
-</code>
+```
 
 <p>
 With this field in the package.json and "dnode" in the "require" list,

@@ -29,16 +29,16 @@ and a representation of them gets passed to the remote, so there's no eval().
 Here's a simple example.
 </p>
 
-<code>
+```
 // server:
 var DNode = require('dnode');
 
 var server = DNode({
     timesTen : function (n,f) { f(n * 10) },
 }).listen(6060);
-</code>
+```
 <br>
-<code>
+```
 // client:
 var DNode = require('dnode');
 var sys = require('sys');
@@ -48,7 +48,7 @@ DNode.connect(6060, function (remote) {
         sys.puts(result); // 5 * 10 == 50
     });
 });
-</code>
+```
 
 <p>
 Unlike many asynchronous RPC systems, DNode allows the programmer to pass
@@ -72,7 +72,7 @@ Here's an example where the client calls a method on the server that calls a
 method on the client.
 </p>
 
-<code>
+```
 // server:
 var DNode = require('dnode');
 
@@ -83,9 +83,9 @@ DNode(function (client) {
         });
     }; 
 }).listen(6060);
-</code>
+```
 <br>
-<code>
+```
 // client:
 var DNode = require('dnode');
 
@@ -96,7 +96,7 @@ DNode({
         sys.puts(res); // 20 * 3 == 60
     });
 });
-</code>
+```
 
 <h2>DNode Browser Example</h2>
 
@@ -124,7 +124,7 @@ element on the page.
 Here's an example of what the browser-side code looks like:
 </p>
 
-<code>
+```
 &lt;script type="text/javascript" src="/dnode.js"&gt;&lt;/script&gt;
 &lt;script type="text/javascript"&gt;
     DNode({
@@ -141,13 +141,13 @@ Here's an example of what the browser-side code looks like:
 
 &lt;p&gt;timesTen(10) == &lt;span id="result"&gt;?&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;My name is &lt;span id="name"&gt;?&lt;/span&gt;.&lt;/p&gt;
-</code>
+```
 
 <p>
 Here's the server-side compliment to the browser-side code above:
 </p>
 
-<code>
+```
 #!/usr/bin/env node
 
 var DNode = require('dnode');
@@ -186,7 +186,7 @@ DNode(function (client) {
     server : httpServer,
     transports : 'websocket xhr-multipart xhr-polling htmlfile'.split(/\s+/),
 }).listen(6060);
-</code>
+```
 
 <h2>Installation</h2>
 
@@ -194,18 +194,18 @@ DNode(function (client) {
 DNode is available on <a href="http://npmjs.org/">npm</a>, a package manager for
 node.js libraries. You can install dnode by typing:
 </p>
-<code>
+```
 npm install dnode
-</code>
+```
 
 <p>
 Or you can check out the repository and link your development copy with npm:
 </p>
-<code>
+```
 git clone http://github.com/substack/dnode.git
 cd dnode
 npm link .
-</code>
+```
 
 <p>
 DNode depends on

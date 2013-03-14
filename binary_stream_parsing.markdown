@@ -18,17 +18,17 @@ In order to bring down latency,
 I needed a way to decode the RFB protocol, but node.js is asynchronous,
 so I couldn't just do:
 </p>
-<code>
+```
 var width = sock.read(2);
 var height = sock.read(2);
-</code>
+```
 <p>
 I had to collect up lots of tiny
 <a href="http://nodejs.org/api.html#buffers-3">buffers</a>
 emitted asyncronously and treat them
 all as one for the purposes of parsing, which went something like this:
 </p>
-<code>
+```
 var buffers = [];
 var bytes = 0, offset = 0;
 sock.addListener('data', function (buf) {
@@ -58,7 +58,7 @@ sock.addListener('data', function (buf) {
         return buffer;
     }
 });
-</code>
+```
 <p>Yikes, what a mess!</p>
 
 <p>
@@ -69,7 +69,7 @@ to build linked lists of buffers
 from the network stream, which made the code simpler:
 </p>
 
-<code>
+```
 var BufferList = require('bufferlist').BufferList;
 var bufferList = new BufferList;
 var state = 0;
@@ -92,7 +92,7 @@ sock.addListener('data', function (buf) {
         return s;
     }
 });
-</code>
+```
 
 <p>
 But even with this tool, keeping track of the parser state by hand was very
@@ -117,7 +117,7 @@ for monadic, asynchronous binary bufferlist parsing.
 Said more simply in code:
 </p>
 
-<code>
+```
 var BufferList = require('bufferlist').BufferList;
 var Binary = require('bufferlist/binary').Binary;
 
@@ -137,7 +137,7 @@ sock.addListener('data', function (buf) {
     bufferList.push(buf);
 });
 
-</code>
+```
 
 <p>
 Sooooooo much better.
