@@ -44,7 +44,7 @@ simple examples.
  
 6. add some assertions around the example code
  
-7. `pkginit` (https://github.com/substack/pkginit) to generate a
+7. [`pkginit`](https://github.com/substack/pkginit) to generate a
 package.json (or you could just use `npm init`)
  
 8. copy the example file into a readme.markdown since I really like
