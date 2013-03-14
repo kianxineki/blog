@@ -57,7 +57,8 @@ instructions
  
 10. create a github repo
  
-11. add travis and/or testling-ci github hooks as appropriate
+11. add [travis](http://travis-ci.org) and/or [testling-ci](http://testling.com)
+github hooks as appropriate
  
 12. `git push` and `npm publish`
  
