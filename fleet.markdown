@@ -22,18 +22,18 @@ To start using fleet, just install the fleet command with
 <a href="http://npmjs.org">npm</a>:
 </p>
 
-<code>
+```
 $ npm install -g fleet
-</code>
+```
 
 <p>
 Then on one of your servers, start a fleet hub. From a fresh directory, give it
 a passphrase and a port to listen on:
 </p>
 
-<code>
+```
 $ fleet hub --port=7000 --secret=beepboop
-</code>
+```
 
 <p>
 Now fleet is listening on :7000 for commands and has started a git server on
@@ -47,9 +47,9 @@ You can have as many workers as you like on a single server but each worker
 should be run from a separate directory. Just do:
 </p>
 
-<code>
+```
 $ fleet drone --hub=x.x.x.x:7000 --secret=beepboop
-</code>
+```
 
 <p>
 where <span class="code">x.x.x.x</span> is the address where the fleet hub is
@@ -63,9 +63,9 @@ First set a remote so you don't need to type
 <span class="code">--secret</span> all the time.
 </p>
 
-<code>
+```
 $ fleet remote add default --hub=x.x.x.x:7000 --secret=beepboop
-</code>
+```
 
 <p>
 Fleet just created a <span class="code">fleet.json</span> file for you to save
@@ -76,9 +76,9 @@ your settings.
 From the same app directory, to deploy your code just do:
 </p>
 
-<code>
+```
 $ fleet deploy
-</code>
+```
 
 <p>
 The deploy command does a <span class="code">git push</span> to the fleet hub's
@@ -94,9 +94,9 @@ processes is up to the programmer but it's super simple. Just use the
 <span class="code">fleet spawn</span> command:
 </p>
 
-<code>
+```
 $ fleet spawn -- node server.js 8080
-</code>
+```
 
 <p>
 By default fleet picks a drone at random to run the process on. You can specify
@@ -109,7 +109,7 @@ Start a few processes across all your worker drones and then show what is
 running with the <span class="code">fleet ps</span> command:
 </p>
 
-<code>
+```
 $ fleet ps
 drone#3dfe17b8
 ├─┬ pid#1e99f4
@@ -120,7 +120,7 @@ drone#3dfe17b8
   ├── status:   running
   ├── commit:   webapp/1b8050fcaf8f1b02b9175fcb422644cb67dc8cc5
   └── command:  node server.js 8889
-</code>
+```
 
 <p>
 Now suppose that you have new code to push out into production.
@@ -154,7 +154,7 @@ manpage-based help system! Just do
 run.
 </p>
 
-<code>
+```
 $ fleet help
 Usage: fleet &lt;command&gt; [&lt;args&gt;]
 
@@ -170,7 +170,7 @@ The commands are:
   stop     Stop processes running on drones.
 
 For help about a command, try `fleet help <command>`.
-</code>
+```
 
 <p>
 <span class="code">npm install -g fleet</span>
