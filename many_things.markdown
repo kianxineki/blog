@@ -25,7 +25,7 @@ When you installed a distribution of UNIX or Linux you get the BSD or GNU
 toolchain of handy utilities so the same logic should apply.
 
 But these standard libraries grew rotten.
-Nobody could give them to love and care they needed because the core team was
+Nobody could give them the love and care they needed because the core team was
 too busy evolving the language, iterating on the runtime, and improving
 performance. The core team forgot about poor little distutils.
 
