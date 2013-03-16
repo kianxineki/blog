@@ -1,3 +1,20 @@
+*NOTE* This article is positively ANCIENT. Much has changed since this article
+was written:
+
+* middleware is gone. Use modules like
+[encilada](https://github.com/shtylman/node-enchilada)
+or [browservefy](https://github.com/chrisdickinson/browservefy) instead.
+* es5 shims were completely removed
+* filters have been replaced with [transforms](https://github.com/substack/node-browserify#btransformtr)
+* built-in support for coffee script is gone. Use a transform such as
+[coffeeify](https://github.com/substack/coffeeify) instead.
+
+You're probably better off not even reading this article and consulting the
+[current readme](https://github.com/substack/node-browserify)
+and/or [browserify.org](http://browserify.org) instead.
+
+***
+
 Announcing <a href="https://github.com/substack/node-browserify">browserify</a>,
 a node.js module that bundles up all your javascript into a single file so you
 can use node.js-style <span class="code">require()</span> from the browser.
