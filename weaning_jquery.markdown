@@ -100,14 +100,13 @@ This works in all browsers.
 
 ---
 
-Prepending is trickier but not very much. Instead of:
+To prepend elements, instead of:
 
     $(a).prepend(b)
 
 do:
 
-    if (a.childNodes.length) a.insertBefore(b, a.childNodes[0])
-    else a.appendChild(b)
+    a.insertBefore(b, a.childNodes[0])
 
 This works in all browsers.
 
