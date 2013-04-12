@@ -128,8 +128,7 @@ This works in all browsers.
 
 To set the text content of nodes without html tag interpolation, instead of:
 
-
-   $(element).text(textString)
+    $(element).text(textString)
 
 you can do:
 
