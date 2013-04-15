@@ -9,7 +9,7 @@ I call this the node aesthetic.
 <p>
 The very first example of node you are likely to see is on the
 <a href="http://nodejs.org">node.js home page</a>.
-This snippet is exemplary of the the radical simplicity pioneered by 
+This snippet is exemplary of the radical simplicity pioneered by
 projects like <a href="http://www.sinatrarb.com/">sinatra</a>.
 </p>
 
@@ -136,7 +136,7 @@ sophisticated package management.
 While the limited surface area approach can hurt extensibility,
 you can win a great deal of extensibility back by breaking up
 problems into lots of tiny modules.
-When you write a module for general enough consumption to put up on 
+When you write a module for general enough consumption to put up on
 <a href="http://npmjs.org">npm</a>,
 you can't contaminate your own implementation with too many
 implementation-specific details. It's also much easier to test and iterate on
