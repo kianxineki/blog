@@ -40,7 +40,17 @@ and to get a list of elements do:
 
     document.querySelectorAll('.foo .bar')
 
-There's also `element.querySelector{,All}()` if you want the search to begin at an existing element. querySelector and querySelectorAll work in IE8 and up.
+---
+
+To do a nested search using css selectors, instead of:
+
+    $(element).find('.bar')
+
+you can do:
+
+    element.querySelector('.bar')
+
+which works in IE8 and up.
 
 ---
 
