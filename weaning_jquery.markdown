@@ -179,6 +179,48 @@ This works in all browsers.
 
 ---
 
+For more advanced functionality, you can use modules published to
+[npm](https://npmjs.org). For example, to do ajax, instead of:
+
+    $.post('/form', { name: 'John', time: '2pm' })
+    .done(function(data) {
+        alert("Data Loaded: " + data);
+    });
+
+you can use tiny modules like
+[hyperquest](https://npmjs.org/package/hyperquest),
+[querystring](http://nodejs.org/docs/latest/api/querystring.html),
+and [concat-stream](https://npmjs.org/package/concat-stream),
+
+    var hq = require('hyperquest');
+    var qs = require('querystring');
+    var concat = require('concat-stream');
+    
+    var req = hq.post('/form');
+    req.pipe(concat(function (err, data) {
+        
+    }));
+    req.end(qs.stringify({ name: 'John', time: '2pm' }));
+
+Once you've installed [npm](https://npmjs.org) and
+[browserify](https://browserify.org) you can do:
+
+    $ npm install hyperquest concat-stream
+    $ browserify main.js > bundle.js
+
+and then just put a `<script src="bundle.js"></script>` into your html.
+
+You can use the same tools to organize your code and to replace things like
+jquery plugins in favor of tiny composable modules published to npm.
+
+As a bonus, you can run the `main.js` code that does an HTTP POST in
+[node](http://nodejs.org) without any changes. This is very useful for tests and
+having the same libraries at your disposal in node and the browser means your
+code will be more reusable across different environments.
+
+---
+
 For fancy things like animation libraries make sense but for basic stuff like
 simple dom manipulation the browser already provides you with some really good
-primitives.
+primitives. Plus there is a great emerging ecosystem of tiny packages that do
+one thing well to fill in the gaps.
