@@ -184,7 +184,7 @@ For more advanced functionality, you can use modules published to
 
     $.post('/form', { name: 'John', time: '2pm' })
     .done(function(data) {
-        alert("Data Loaded: " + data);
+        console.log('data=' + data);
     });
 
 you can use tiny modules like
@@ -198,7 +198,7 @@ and [concat-stream](https://npmjs.org/package/concat-stream),
     
     var req = hq.post('/form');
     req.pipe(concat(function (err, data) {
-        
+        console.log('data=' + data);
     }));
     req.end(qs.stringify({ name: 'John', time: '2pm' }));
 
