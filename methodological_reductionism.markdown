@@ -76,3 +76,36 @@ script of easy answers
 but if we dig deeper
 
 For a modest investment
+
+# ----------------
+
+ON THE INHERENT INSTABILITY OF FRAMEWORKS:
+
+06:18:05 < substack> t0lkman: but perhaps they did each of those things better in isolation 
+                     instead of writing a kitchen sink of all functionality?
+06:18:06 < t0lkman> I mean all those frameworks 
+                    http://ocdevel.com/blog/nodejs-frameworks-comparison don't exist just for 
+                    nothing
+06:18:16 < substack> you can find individual libraries for pretty much everything you need to 
+                     do
+06:18:30 < substack> and when you can't find one, you can write one and publish it to npm
+06:18:36 < substack> and then everybody can benefit
+06:18:50 < substack> instead of mutually-exclusive fiefdoms of frameworks that don't 
+                     inter-operate
+06:23:10 < substack> t0lkman: there will always be more and more and more frameworks because 
+                     there is nothing inherent in the problem domain that constrains the 
+                     solutions
+06:23:20 < substack> it's all opinion, conjecture, and fashion
+06:24:05 < substack> but libraries that express a single clear idea about their inputs and 
+                     outputs can be evaluated independently on their merits for their narrow 
+
+06:24:10 < substack> we can actually know something about them
+06:24:39 < substack> it's much harder to make conclusive statements about expansive frameworks 
+                     because they are so multi-faceted
+06:25:19 < substack> it goes to the heart of your internal epistemological system
+
+06:26:01 < substack> I happen to be a methodological reductionist because I don't see how we 
+                     can make reliable statements about big systems owing to the compounding 
+                     factors
+06:26:24 < substack> it's the same idea as experimental design: you test only a single 
+                     variable at a time and you keep everything else the same
