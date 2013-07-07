@@ -72,19 +72,76 @@ $ browserify -t brfs main.js > bundle.js
 
 # render the data
 
-Use ordinary html.
+I'm not a big fan of html templates since you've got to nest a pseudo-language
+into your html and I would rather just write ordinary html that I can update
+procedurally from my rendering code.
+
+In browsers it's easy to update the html on the page with the DOM. I can just do
+a quick `.querySelector()` to fetch an element and then I can easily update
+attributes or inner content.
+
+If I've got a lot of data to insert into the DOM, calling `.querySelector()`,
+`.setAttribute()`, and assigning `.innerHTML` or `.textContent` all the time can
+get verbose, but the approach is not so unpleasant.
+
+In node, there's not a fast, reliable DOM library for doing updates with the
+intent of producing html strings that will be sent to the browser in the initial
+payload. Luckily, the full DOM isn't strictly necessary to serve html strings to
+the browser in this "dom style".
 
 ## hyperglue
 
-works in both node and the browser
+With [hyperglue](https://github.com/substack/hyperglue), we can solve both the
+verbosity of updating the DOM at query selectors and node compatability at
+once.
 
-In the browser, you get full DOM nodes.
+hyperglue takes an html element or string and an object that maps query
+selectors to attributes and content. With hyperglue and brfs together you can
+write some rendering logic like:
+
+```
+var hyperglue = require('hyperglue');
+var fs = require('fs');
+var html = fs.readFileSync(__dirname + '/article.html');
+
+module.exports = function (doc) {
+    var name = doc.title.replace(/[^A-Za-z0-9]+/g,'_');
+    return hyperglue(html, {
+        '.title a': {
+            name: name,
+            href: '#' + name,
+            _text: doc.title
+        },
+        '.commit': doc.commit,
+        '.author': doc.author,
+        '.date': doc.date,
+        '.body': { _html: doc.body }
+    });
+}
+```
+
+which will work in both node and the browser!
+
+The only odd part is that in the browser you will get a full dom element, but in
+node you just get an object with an `outerHTML` string property, which is
+adequate for writing html content to the http server response. 
 
 ## hyperspace
 
--> streaming, so you can pipe into trumpet
+[hyperspace](https://github.com/substack/hyperspace) puts a stream on top of
+hyperglue and adds some browser-specific functionality so that you can write
+shared rendering logic that starts on the server and seamlessly picks up where
+the server left off on the browser.
+
+
+
 
 hyperspace has 'element' event that fires for each new element on the page
+
+
+
+-> streaming, so you can pipe into trumpet
+
 
 ## trumpet
 

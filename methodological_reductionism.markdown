@@ -109,3 +109,8 @@ ON THE INHERENT INSTABILITY OF FRAMEWORKS:
                      factors
 06:26:24 < substack> it's the same idea as experimental design: you test only a single 
                      variable at a time and you keep everything else the same
+                     
+If you need to do X, find a library that does X. Don't hunt down a library that
+happens to do X merely incidentally because now your solution is compounded by a
+bunch of unrelated features that make your application less flexible and more
+complex.
