@@ -278,3 +278,7 @@ interfaces backed to IndexDB when you're in a browser.
 * [trumpet](https://github.com/substack/node-trumpet)
 * [levelup](https://github.com/rvagg/node-levelup)
 * [level-live-stream](https://github.com/dominictarr/level-live-stream)
+
+For an example of using hyperspace, trumpet, and brfs in a real application,
+check out
+[the code for this very blog](http://github.com/substack/substack.net).
