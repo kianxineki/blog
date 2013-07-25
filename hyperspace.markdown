@@ -146,7 +146,7 @@ var fs = require('fs');
 var html = fs.readFileSync(__dirname + '/article.html');
 
 module.exports = function () {
-    return hyperspace(html, function (row) {
+    return hyperspace(html, function (doc) {
         var name = doc.title.replace(/[^A-Za-z0-9]+/g,'_');
         return {
             '.title a': {
