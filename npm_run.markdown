@@ -162,9 +162,12 @@ proper `#!` line at the top of the file, `chmod +x`, and you're good to go:
 # windows
 
 A [surprising amount](https://github.com/isaacs/npm/pull/4058#issuecomment-27439737)
-of bash-isms work just fine on windows and for the fancier parts that don't work
-yet, I have [some experiments](https://npmjs.org/package/bashful) in the works
-that should fold in very well with this npm-centric approach.
+of bash-isms work on windows but we still need to get `;` and `&` working to get
+to "good enough".
+
+I have [some experiments](https://npmjs.org/package/bashful) in the works for
+windows compatibility that should fold in very well with this npm-centric
+approach.
 
 # conclusion
 
