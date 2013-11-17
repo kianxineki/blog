@@ -159,14 +159,12 @@ proper `#!` line at the top of the file, `chmod +x`, and you're good to go:
 "build-js": "bin/build.sh"
 ```
 
-If you absolutely need your project to build on windows, just make sure that
-your windows devs have a copy of
-[msysgit](https://github.com/msysgit/msysgit#the-build-environment) which ships
-with bash or cygwin or something similar. Or tell them to get a UNIX.
+# windows
 
-I have [some experiments](https://npmjs.org/package/bashful) in the works to
-help with this windows-can't-run-bash problem, but the job control and subshell
-sections aren't finished yet.
+A [surprising amount](https://github.com/isaacs/npm/pull/4058#issuecomment-27439737)
+of bash-isms work just fine on windows and for the fancier parts that don't work
+yet, I have [some experiments](https://npmjs.org/package/bashful) in the works
+that should fold in very well with this npm-centric approach.
 
 # conclusion
 
