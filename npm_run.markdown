@@ -106,7 +106,8 @@ Altogether, the package.json I've just described might look like:
   },
   "devDependencies": {
     "watchify": "~0.1.0",
-    "catw": "~0.0.1"
+    "catw": "~0.0.1",
+    "tap": "~0.4.4"
   },
   "scripts": {
     "build-js": "browserify browser/main.js | uglifyjs -mc > static/bundle.js",
