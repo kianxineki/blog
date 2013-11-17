@@ -167,7 +167,8 @@ to "good enough".
 
 I have [some experiments](https://npmjs.org/package/bashful) in the works for
 windows compatibility that should fold in very well with this npm-centric
-approach.
+approach but in the meantime, [win-bash](http://win-bash.sourceforge.net/) is a
+super handy little bash implementation for windows.
 
 # conclusion
 
