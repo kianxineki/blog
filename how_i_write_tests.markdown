@@ -165,3 +165,17 @@ ok 1 should be equal
                               ^^^^^^^^^^^^
 
 ```
+
+# why write tests this way?
+
+The [node-tap](https://npmjs.org/package/tap) API is pretty great because it
+feels asynchronous by default. Since you plan out the number of assertions ahead
+of time, it's much easier to catch false positives where asynchronous handlers
+with assertions inside didn't fire at all.
+
+By using simple text-based interfaces like stdout and `console.log()` it's easy
+to get tests to run in node and the browser and you can just pipe the output
+around to simple command-line tools. If you stick to tools that just do one
+thing but expose their functionality in a hackable way, it's easy to recombine
+the pieces however you want and swap out components to better suit your specific
+needs.
