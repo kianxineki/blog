@@ -16,6 +16,10 @@ previous implementation and a much smaller file size. The downside is that
 `Buffer` now only works in browsers with `Uint8Array` and `DataView` support.
 All the other modules should maintain existing browser support.
 
+*Update*: a [shim was added](https://npmjs.org/package/typedarray)
+to in 3.1 for Uint8Array and DataView support. Now you can use `Buffer` in every
+browser.
+
 # direct builtin dependencies
 
 In v3, browserify no longer depends on
