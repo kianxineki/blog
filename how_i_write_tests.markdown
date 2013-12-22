@@ -166,6 +166,10 @@ ok 1 should be equal
 
 ```
 
+Update (2013-12-21): check out the [covert](https://npmjs.org/package/covert)
+package on npm, which gives you a `covert` command that runs browserify and
+coverify for you.
+
 # why write tests this way?
 
 The [node-tap](https://npmjs.org/package/tap) API is pretty great because it
