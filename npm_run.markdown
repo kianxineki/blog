@@ -139,7 +139,21 @@ watchers:
 "start-dev": "npm run watch & npm start"
 ```
 
+If you need to add a stage that executes after the watchify bundle is
+regenerated, you can use a tool like
+[onchange](https://npmjs.org/package/onchange) to wire that up:
+
+```
+"watch": "npm run watch-js & npm run watch-css & npm run post-js",
+"post-js": "onchange static/bundle.js -- npm test"
+```
+
+`onchange` can even accept globs as arguments to watch a whole directory tree of
+files.
+
 You can reorganize the pieces however you want!
+[The dream of unix](https://www.youtube.com/watch?v=tc4ROCJYbm0), alive and
+well!
 
 # when things get really complicated...
 
