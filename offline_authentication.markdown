@@ -1,4 +1,4 @@
-# offline authentication in the browser
+# offline decentralized single sign-on in the browser
 
 Recently, browsers have just begun to implement
 [web cryptography](http://www.w3.org/TR/WebCryptoAPI/).
@@ -84,3 +84,11 @@ replay attacks and domain isolation, but this proof of concept should be good
 enough to at least start people thinking about decentralized approaches to
 single sign-on and the changing role of servers and webapps as browser APIs
 become more capable.
+
+# links
+
+* [http://hyperboot.org](http://hyperboot.org)
+* [https://github.com/substack/hyperboot](https://github.com/substack/hyperboot)
+* [https://github.com/substack/keyboot](https://github.com/substack/keyboot)
+* [https://github.com/substack/keyboot-example-app](https://github.com/substack/keyboot-example-app)
+* [http://keyboot-example-app.hyperboot.org/](http://keyboot-example-app.hyperboot.org/)
