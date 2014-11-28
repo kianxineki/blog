@@ -59,7 +59,7 @@ external auditing systems before upgrading.
 
 With a versioning system in place, we can now start implementing an offline
 single sign-on system that exposes the
-[web crypto methods](http://msdn.microsoft.com/en-us/library/ie/dn302321(v=vs.85).aspx)
+[web crypto methods](http://msdn.microsoft.com/en-us/library/ie/dn302321%28v=vs.85%29.aspx)
 securely without exposing private keys to random websites.
 
 There are another few nifty tricks with the service worker API that can give us
