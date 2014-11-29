@@ -78,6 +78,10 @@ In the https://keyboot.org/ window, approve the request. Now from
 `http://keyboot-example-app.hyperboot.org/`, you can sign messages with your
 private key!
 
+*Update*: if [http://keyboot-example-app.hyperboot.org/](http://keyboot-example-app.hyperboot.org/)
+gives cross-domain errors in your browser, try
+[https://substack.neocities.org/keyboot_example_app.html](https://substack.neocities.org/keyboot_example_app.html).
+
 There is [still plenty to do](https://github.com/substack/keyboot/issues) and
 some unanswered questions about different threat models and how best to prevent
 replay attacks and domain isolation, but this proof of concept should be good
