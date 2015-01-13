@@ -2,7 +2,7 @@ Here are some tiny backend node modules I like to glue together to build
 webapps.
 
 Check out the repo on github:
-[substack-flavored-webapp](https://github.com/substack-flavored-webapp).
+[substack-flavored-webapp](https://github.com/substack/substack-flavored-webapp).
 
 ``` js
 var alloc = require('tcp-bind');
