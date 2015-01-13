@@ -165,7 +165,7 @@ function post (fn) {
 so that I can wrap an entire route handler in a `post()`:
 
 ``` js
-router.addRoute('/submit', post(function (req, res) {
+router.addRoute('/submit', post(function (req, res, params) {
     console.log(params);
     res.end('ok!\n');
 }));
