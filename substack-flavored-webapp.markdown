@@ -78,7 +78,7 @@ function read (file) {
 * [routes](https://npmjs.org/package/routes) - organize routing
 * [ecstatic](https://npmjs.org/package/ecstatic) - serve static files
 * [body](https://npmjs.org/package/body) - parse incoming form data
-* [trumpet](https://npmjs.org/package/ecstatic) - insert html into layouts
+* [trumpet](https://npmjs.org/package/trumpet) - insert html into layouts
 
 ## tcp-bind
 
