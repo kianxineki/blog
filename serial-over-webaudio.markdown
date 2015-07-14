@@ -196,4 +196,4 @@ My laptop and Jake's phone worked well at 9600 baud, but my phone worked best at
 A good next step would be to get the browser microphone API working for serial
 input for full duplex serial communication using only a web page.
 
-![workspace](http://scratch.substack.net/serial-webaudio/workspace.jpg)
+[![workspace](http://scratch.substack.net/serial-webaudio/workspace_small.jpg)](http://scratch.substack.net/serial-webaudio/workspace.jpg)
