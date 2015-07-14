@@ -178,7 +178,7 @@ You can load a simple demo of webaudio-serial-tx at:
 
 Finally we'll need a simple circuit to interface the audio jack
 
-![circuit](http://scratch.substack.net/serial-webaudio/circuit.jpg)
+[![circuit](http://scratch.substack.net/serial-webaudio/circuit_small.jpg)](http://scratch.substack.net/serial-webaudio/circuit.jpg)
 
 Circuit diagram by [Jake](https://github.com/jerkey).
 
