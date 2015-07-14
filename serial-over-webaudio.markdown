@@ -1,3 +1,6 @@
+This writeup is cross-posted from the
+[sudoroom blog](https://sudoroom.org/serial-over-webaudio/).
+
 # serial over webaudio
 
 At the last
