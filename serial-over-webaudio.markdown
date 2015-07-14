@@ -82,6 +82,7 @@ var sp = context.createScriptProcessor(2048, 1, 1);
 sp.addEventListener('audioprocess', function (ev) {
     // ...
 });
+sp.connect(context.destination);
 ```
 
 Inside the `'audioprocess'` event, we can populate an output buffer with the
